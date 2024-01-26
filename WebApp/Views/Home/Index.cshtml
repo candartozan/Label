@@ -1,0 +1,62 @@
+﻿@model Label
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-controller="Home" asp-action="Save" method="post">
+
+    <div class="row">
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sıra</th>
+                        <th>Bölüm</th>
+                        <th>Proje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model?.Number</td>
+                        <td>@Model?.Department</td>
+                        <td>@Model?.Project</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-4">
+            <div class="form-group">
+                <input asp-for="Check1" class="form-check-input" type="checkbox">
+                <label asp-for="Check1" class="form-check-label">Bilgi Teknolojileri</label>
+            </div><div class="form-group">
+
+                <input asp-for="Check2" class="form-check-input" type="checkbox">
+                <label asp-for="Check2" class="form-check-label">Sağlık</label>
+            </div><div class="form-group">
+
+                <input asp-for="Check3" class="form-check-input" type="checkbox">
+                <label asp-for="Check3" class="form-check-label">Makine</label>
+            </div><div class="form-group">
+
+                <input asp-for="Check4" class="form-check-input" type="checkbox">
+                <label asp-for="Check4" class="form-check-label">Elektrik-Elektronik</label>
+            </div><div class="form-group">
+
+                <input asp-for="Check5" class="form-check-input" type="checkbox">
+                <label asp-for="Check5" class="form-check-label">Psikoloji</label>
+            </div>
+
+            <input asp-for="Number" type="hidden" value="@Model?.Number" />
+            <input asp-for="Project" type="hidden" value="@Model?.Project" />
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+                <a asp-controller="Home" asp-action="Pass" class="btn btn-warning">Geç</a>
+            </div>
+        </div>
+    </div>
+       
+</form>
+
+<a asp-controller="Home" asp-action="GetSource" class="btn btn-secondary">Yükle</a>
