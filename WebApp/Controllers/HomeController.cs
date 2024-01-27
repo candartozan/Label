@@ -9,7 +9,7 @@ namespace WebApp.Controllers
         private readonly ILogger<HomeController> _logger;
         private static string[] sRows;
         private string sourcePath = "C:\\Users\\Candar\\Desktop\\source.csv";
-        private string destinationPath = "C:\\Users\\Candar\\Desktop\\destination.csv";
+        private string destinationPath = "C:\\Users\\Candar\\Desktop\\destination1.csv";
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -34,7 +34,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public IActionResult Save(Label value)
         {
-            System.IO.File.AppendAllText(destinationPath, value.ToString() + Environment.NewLine);
+            System.IO.File.AppendAllText(destinationPath, value.ToString() + Environment.NewLine,System.Text.Encoding.UTF8);
             sRows = sRows.Skip(1).ToArray();
             return RedirectToAction("Index");
         }
