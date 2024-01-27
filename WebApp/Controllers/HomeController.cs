@@ -25,15 +25,16 @@ namespace WebApp.Controllers
                 var model = new Label { Number = value[0], Department = value[5], Project = value[6] };
                 return View(model);
             }
-            catch {
-            return View();
+            catch
+            {
+                return View();
             }
         }
 
         [HttpPost]
         public IActionResult Save(Label value)
         {
-            System.IO.File.AppendAllText(destinationPath, value.ToString());
+            System.IO.File.AppendAllText(destinationPath, value.ToString() + Environment.NewLine);
             sRows = sRows.Skip(1).ToArray();
             return RedirectToAction("Index");
         }
@@ -63,7 +64,8 @@ namespace WebApp.Controllers
 
             sRows = System.IO.File
                 .ReadAllLines(sourcePath)
-            .Where(x => {
+            .Where(x =>
+            {
                 int number = int.Parse(lastNumber);
                 string sNumber = x.Split(',')[0];
 
@@ -78,9 +80,9 @@ namespace WebApp.Controllers
                 catch
                 {
                     return false;
-                }                
-                
-                })
+                }
+
+            })
             .ToArray();
         }
     }
