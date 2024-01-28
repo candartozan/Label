@@ -13,7 +13,7 @@
 
         public override string ToString()
         {
-            return $"{Number},{Project},{(Check1?"1":"0")},{(Check2 ? "1" : "0")},{(Check3 ? "1" : "0")},{(Check4 ? "1" : "0")},{(Check4 ? "1" : "0")}";
+            return $"{Number},{Project},{(Check1?"1":"0")},{(Check2 ? "1" : "0")},{(Check3 ? "1" : "0")},{(Check4 ? "1" : "0")},{(Check5 ? "1" : "0")}";
         }
     }
 }
